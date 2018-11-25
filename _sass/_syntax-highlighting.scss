@@ -1,9 +1,49 @@
 /**
  * Syntax highlighting styles
  */
+@mixin relative-font-size($ratio) {
+  font-size: $base-font-size * $ratio;
+}
+pre,
+code {
+  font-size: 2.7vmin;
+  line-height: 1.6;
+  @include min-screen($tablet) {
+    font-size: 16px;
+  }
+}
+
+code {
+  padding: 1px 0;
+  @include min-screen($tablet) {
+    padding: 1px 5px;
+  }
+}
+
+pre {
+  padding: 16px 0;
+  overflow-x: auto;
+  @include min-screen($tablet) {
+    padding: 8px 12px;
+  }
+  > code {
+    border: 0;
+    padding-right: 0;
+    padding-left: 0;
+  }
+ }
+
 .highlight {
-  background: #fff;
-  @extend %vertical-rhythm;
+  background-color: $alabaster;
+  border-radius: 10px;
+  // background: #fff;
+  margin: 2rem 0;
+  padding: 1rem;
+  position: relative;
+  // @extend %vertical-rhythm;
+  @include min-screen($tablet){
+    padding: 1.5rem;
+  }
 
   .highlighter-rouge & {
     background: #eef;
